@@ -742,7 +742,7 @@ function renderPiano(piano) {
 
         let useX = dx;
 
-        if(key.indexOf("#" && !piano.inlineKeys) > -1) {
+        if(key.indexOf("#") > -1 && !piano.inlineKeys) {
             useX -= halfMiniBlack;
 
             renderKeyFill(piano, { x: useX, key: key, idx: i }, miniWidthBlack, miniBlackHeight, piano.blackKeyColor, dy, 2);
