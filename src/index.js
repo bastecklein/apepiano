@@ -1,4 +1,4 @@
-import { guid } from "common-helpers";
+import { guid, hexToRGB } from "common-helpers";
 import { handleInput, clearElementForTouch } from "input-helper";
 
 window.addEventListener("resize", onResize);
@@ -172,6 +172,15 @@ class ApePiano {
         if(options.activeColor) {
             this.activeColor = options.activeColor;
         }
+
+        if(options.mapFillColor) {
+            this.mapFillColor = options.mapFillColor;
+        } else {
+            const rgb = hexToRGB(this.activeColor);
+            this.mapFillColor = "rgba(" + rgb.r + ", " + rgb.g + ", " + rgb.b + ", 0.45)";
+        }
+
+        
 
         this.keyUp = null;
         this.keyDown = null;
@@ -767,7 +776,7 @@ function renderPiano(piano) {
         maxX = piano.width;
     }
 
-    piano.context.fillStyle = "rgba(0, 0, 255, 0.45)";
+    piano.context.fillStyle = piano.mapFillColor;
     piano.context.fillRect(minX, dy, maxX - minX, miniHeightWhite);
 }
 
