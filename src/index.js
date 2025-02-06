@@ -75,7 +75,7 @@ export function createPiano(options) {
         move: function(e) {
             pianoPointerMove(piano, e.id, e.x, e.y, e.type, e.pressure, e.which);
         },
-        end: function(e) {
+        up: function(e) {
             pianoPointerUp(piano, e.id, e.type, e.which);
         }
     });
